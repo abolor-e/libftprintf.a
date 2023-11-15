@@ -13,6 +13,7 @@
 #include "ft_printf.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 void    green()
 {
@@ -99,11 +100,14 @@ int	main(void)
 	green();
 	printf("Basic number check: %d\n", 0);
 	printf("Basic numbers check: %d, %d, %d\n", 0, 247, -2371);
-	printf("Int max and min: %d, %d\n", 2147483647, (int)-2147483649);
-
-
+	printf("Int max and min: %d, %d\n", (int)2147483647, (int)-2147483648);
 	purple();
 	ft_printf("Basic number check: %d\n", 0);
 	ft_printf("Basic numbers check: %d, %d, %d\n", 0, 247, -2371);
-	ft_printf("Int max and min: %d, %d\n", 2147483647, (int)-2147483649);
+	ft_printf("Int max and min: %d, %d\n", 2147483647, -2147483648);
+
+	yellow();
+	printf("'%s TEST'\n", "%i");
+	green();
+	printf
 }
