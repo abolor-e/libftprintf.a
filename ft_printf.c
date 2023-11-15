@@ -6,7 +6,7 @@
 /*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 14:34:43 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/11/15 12:32:43 by abolor-e         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:26:23 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	check(unsigned long args, char c, int *count)
 	if (c == 'c')
 		a = ft_nputchar((char)args, count);
 	if (c == 'd')
+		a = ft_nputnbr((int)args, count);
+	if (c == 'i')
 		a = ft_nputnbr((int)args, count);
 	if (c == 'x')
 		a = ft_lowhexa((unsigned int)args, count);

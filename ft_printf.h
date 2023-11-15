@@ -6,7 +6,7 @@
 /*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:25:19 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/11/15 12:38:04 by abolor-e         ###   ########.fr       */
+/*   Updated: 2023/11/15 16:30:43 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int	ft_lowhexa(unsigned int lh, int *count);
 int	ft_upphexa(unsigned int uh, int *count);
 int	ft_add(unsigned long addr, int *count);
 int	ft_putaddr(void *addr, int *count);
-int	main(void);
 
 #endif

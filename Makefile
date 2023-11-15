@@ -6,7 +6,7 @@
 #    By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 11:14:10 by abolor-e          #+#    #+#              #
-#    Updated: 2023/11/15 12:39:32 by abolor-e         ###   ########.fr        #
+#    Updated: 2023/11/15 12:57:55 by abolor-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ SRCS		= ft_printf.c	\
 			  ft_nputstr.c	\
 			  ft_lowhexa.c	\
 			  ft_upphexa.c	\
-			  ft_putaddr.c	\
-			  main.c
+			  ft_putaddr.c	
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -36,7 +35,7 @@ ${NAME}:	${OBJS}
 		ar -rcs ${NAME} ${OBJS}
 
 %.o:		%.c
-		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+		${CC} ${CFLAGS} -c $< -o $@
 
 clean:		
 		${RM} ${OBJS}
