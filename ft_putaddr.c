@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initialize_holder.c                             :+:      :+:    :+:   */
+/*   ft_putaddr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 12:07:13 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/11/09 12:10:23 by abolor-e         ###   ########.fr       */
+/*   Created: 2023/11/15 12:27:01 by abolor-e          #+#    #+#             */
+/*   Updated: 2023/11/15 12:33:04 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-t_holder	*ft_initialize_holder(void)
+int	ft_add(unsigned long addr, int *count)
 {
-	t_holder	*h;
+	if (addr >= 16)
+	{
+		ft_add(addr / 16, count);
+		addr %= 16;
+	}
+	if (ft_nputchar("0123456789abcdef"[addr], count) == -1)
+		return (-1);
+	return (0);
+}
 
-	h = malloc(sizeof(t_holder));
-	if (!h)
-		return (NULL);
-	h->left_justify = 0;
-	h->prefix = ft_strdup("");
-	h->padding = ' ';
-	h->width = 0;
-	h->precision = -1;
-	h->conversion = '\0';
-	h->argument = NULL;
-	h->len = 0;
-	return (h);
+int	ft_putaddr(void *addr, int *count)
+{
+	if (ft_nputstr("0x", count) == -1)
+		return (-1);
+	if (ft_add((unsigned long)addr, count) == -1)
+		return (-1);
+	return (0);
 }

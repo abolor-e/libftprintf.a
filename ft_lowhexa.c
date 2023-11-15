@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nputnbr.c                                       :+:      :+:    :+:   */
+/*   ft_lowhexa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 15:31:04 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/11/14 12:10:28 by abolor-e         ###   ########.fr       */
+/*   Created: 2023/11/14 12:12:41 by abolor-e          #+#    #+#             */
+/*   Updated: 2023/11/14 13:08:19 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_nputnbr(long n, int *count)
+int	ft_lowhexa(unsigned int lh, int *count)
 {
-	if (n < 0)
+	if (lh < 0)
 	{
-		n *= -1;
 		if (ft_nputchar('-', count) == -1)
 			return (-1);
-		if (ft_nputnbr(n, count) == -1)
+		if (ft_lowhexa(-lh, count) == -1)
 			return (-1);
 	}
-	else if (n > 9)
+	if (lh > 15)
 	{
-		if (ft_nputnbr(n / 10, count) == -1)
+		if (ft_lowhexa(lh / 16, count) == -1)
 			return (-1);
-		if (ft_nputnbr(n % 10, count) == -1)
+		if (ft_lowhexa(lh % 16, count) == -1)
 			return (-1);
 	}
-	else if (n <= 9 && n >= 0)
+	if (lh >= 0 && lh <= 15)
 	{
-		if (ft_nputchar(n + 48, count) == -1)
+		if (ft_nputchar("0123456789abcdef"[lh], count) == -1)
 			return (-1);
 	}
 	return (0);

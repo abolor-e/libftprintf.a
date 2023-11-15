@@ -6,7 +6,7 @@
 #    By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/09 11:14:10 by abolor-e          #+#    #+#              #
-#    Updated: 2023/11/09 11:23:01 by abolor-e         ###   ########.fr        #
+#    Updated: 2023/11/15 12:39:32 by abolor-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,17 @@ CFLAGS		= -Wall -Wextra -Werror
 
 RM			= rm -f
 
-SRCS		= 
+SRCS		= ft_printf.c	\
+			  ft_nputchar.c	\
+			  ft_nputnbr.c	\
+			  ft_pputnbr.c	\
+			  ft_nputstr.c	\
+			  ft_lowhexa.c	\
+			  ft_upphexa.c	\
+			  ft_putaddr.c	\
+			  main.c
 
-OBJS		=
+OBJS		= ${SRCS:.c=.o}
 
 all:		${NAME}
 

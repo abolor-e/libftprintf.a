@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initialize_format.c                             :+:      :+:    :+:   */
+/*   ft_nputstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 12:11:17 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/11/09 12:17:37 by abolor-e         ###   ########.fr       */
+/*   Created: 2023/11/14 12:05:52 by abolor-e          #+#    #+#             */
+/*   Updated: 2023/11/15 12:21:12 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-t_format	*ft_initialize_format(const char *format, va_list ap)
+int	ft_nputstr(char *str, int *count)
 {
-	t_format	*fmt;
+	int	i;
 
-	fmt = malloc(sizeof(t_format));
-	if (!fmt)
-		return (NULL);
-	fmt->format = format;
-	va_copy(fmt->ap, ap);
-	fmt->i = 0;
-	fmt->len = 0;
-	return (fmt);
+	i = 0;
+	if (str == NULL)
+		return (-1);
+	while (str[i] != '\0')
+	{
+		if (ft_nputchar(str[i], count) == -1)
+			return (-1);
+		i++;
+	}
+	return (0);
 }
-

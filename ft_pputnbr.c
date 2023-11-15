@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_placeholder.c                                   :+:      :+:    :+:   */
+/*   ft_pputnbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/09 11:53:12 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/11/09 14:39:04 by abolor-e         ###   ########.fr       */
+/*   Created: 2023/11/14 13:47:44 by abolor-e          #+#    #+#             */
+/*   Updated: 2023/11/15 12:10:47 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
-void	ft_placeholder(t_format *fmt)
+int	ft_pputnbr(unsigned int n, int *count)
 {
-	t_holder	*h;
-
-	fmt->i++;
-	h = ft_initialize_holder();
-	ft_parse(fmt, h);
-	if (h->conversion)
+	if (n > 9)
 	{
-		ft_type_conversion(fmt, h);
-		fmt->len += write(1, h->argument, h->len);
-		free(h->argument);
+		if (ft_pputnbr(n / 10, count) == -1)
+			return (-1);
+		if (ft_pputnbr(n % 10, count) == -1)
+			return (-1);
 	}
-	free(h->prefix);
-	free(h);
+	if (n >= 0 && n <= 9)
+	{
+		if (ft_nputchar(n + 48, count) == -1)
+			return (-1);
+	}
+	return (0);
 }
