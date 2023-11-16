@@ -6,16 +6,16 @@
 /*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 11:25:19 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/11/16 13:26:38 by abolor-e         ###   ########.fr       */
+/*   Updated: 2023/11/16 13:33:42 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
+# include <stdarg.h>
+# include <stdio.h>
+# include <unistd.h>
 
 int	ft_printf(const char *format, ...);
 int	ft_vprint(const char *fmt, va_list args, int *count);
